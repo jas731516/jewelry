@@ -1,0 +1,424 @@
+/* Checkout.css */
+.checkout-grid {
+  display: flex;
+  gap: 80px;
+  padding: 20px 8% 20px 8%;
+}
+
+.checkout-container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 20px auto;
+  font-family: 'Arial', sans-serif;
+}
+
+.form-section {
+  width: 60%;
+}
+
+.totals-container {
+  margin-top: 6%;
+  width: 500px;
+  height: 350px;
+  padding: 30px;
+  border: 1px solid #ddd;
+  box-shadow: 2px 2px 2px 2px gainsboro;
+}
+
+.back-link {
+  font-size: 12px;
+  text-decoration: none;
+  color: #666;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.purchasepara {
+  font-size: 30px;
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+
+.check {
+  display: flex;
+  gap: 10px;
+  padding-left: 15px;
+}
+
+#check-inputcity {
+  width: 220px;
+}
+
+
+.purchasetext {
+  font-size: 30px;
+  font-weight: normal;
+  margin: 20px 0 10px;
+}
+
+.checkbox-group {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.checkbox-group label {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.order-summary {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 4px;
+  background: #f9f9f9;
+}
+
+.order-summary h3 {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.summary-details p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.summary-details hr {
+  margin: 10px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.purchase {
+  width: 100%;
+  padding: 10px;
+  background: #000000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: not-allowed;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.totals-details {
+  padding: 20px;
+}
+
+.totals-button {
+  margin-left: 40%;
+}
+
+
+/* Responsive Design */
+@media (max-width: 575px) {
+  .checkout-container {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .form-section {
+    width: 100%;
+  }
+
+  .check {
+    flex-direction: column;
+  }
+
+  .check input {
+    width: 100%;
+  }
+
+  .checkbox-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .order-summary {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+
+
+/* PaymentForm.css */
+.payment-container {
+  width: 60%;
+  padding: 10px 6% 10px 8%;
+  font-family: 'Arial', sans-serif;
+}
+
+.checksection {
+  margin-bottom: 30px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checktext {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.autofill-link {
+  font-size: 14px;
+  text-decoration: none;
+  color: #666;
+}
+
+
+.inputs {
+  width: 680px !important;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.inputs-small {
+  width: 213px !important;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.inputs-small1 {
+  width: 330px !important;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.check1 {
+  display: flex !important;
+  gap: 20px;
+  padding-left: 13px;
+}
+
+.same-address {
+  font-size: 12px;
+  text-align: right;
+  color: #666;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .payment-container {
+    width: 90%;
+  }
+
+  .check1 {
+    flex-direction: column;
+  }
+
+  .check1 input {
+    width: 100%;
+  }
+}
+
+
+.pickup-container {
+  width: 60%;
+  padding: 10px 5% 10px 8%;
+  font-family: 'Arial', sans-serif;
+}
+
+.pickup-section {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h2 {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.change-location {
+  font-size: 12px;
+  color: #666;
+  text-decoration: none;
+}
+
+.pickup-info p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.mall-name {
+  font-weight: bold;
+}
+
+.pickup-time {
+  color: #d9534f;
+}
+
+.billing-section h2 {
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.billing-section input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+
+
+/* === Responsive Design === */
+@media screen and (max-width: 1024px) {
+  .pickup-container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .pickup-container {
+    width: 90%;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .change-location {
+    margin-top: 5px;
+  }
+
+  .check3 {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+
+.order-confirmation {
+  text-align: center;
+  padding: 50px;
+  font-family: 'Arial', sans-serif;
+}
+
+.order-confirmation h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.order-confirmation p {
+  font-size: 12px;
+  color: #666;
+}
+
+.order-summarys {
+  background: #f8f8f8;
+  padding: 30px;
+  max-width: 800px;
+  margin: 20px auto;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.total-amount {
+  font-size: 16px;
+}
+
+.order-detailed {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+/* .left-column,
+.right-column {
+  width: 48%;
+} */
+
+.order-confirmation p {
+  margin: 5px 0;
+}
+
+.back-button {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 4px;
+}
+
+.back-button:hover {
+  background: #555;
+}
+
+/* Responsive styles for mobile */
+@media screen and (max-width: 575px) {
+  .order-summary {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .order-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .order-details {
+    flex-direction: column;
+  }
+
+  .left-column,
+  .right-column {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .back-button {
+    width: 100%;
+    padding: 12px;
+  }
+}
