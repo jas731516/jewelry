@@ -31,6 +31,7 @@ function Rings() {
                             </div>
                             </Link>
                         }
+                        return null;
                     })}
                 </div>
         </div>

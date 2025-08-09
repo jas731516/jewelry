@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import '../components/check.css';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -55,33 +55,88 @@ const Checkout = () => {
     navigate("/order");
   };
 
+  // Example autofill handler for shipping fields with main info
+  const handleAutofill = () => {
+    setShipAddress(address);
+    setShipCity(city);
+    setShipState(stateValue);
+    setShipZip(zip);
+  };
+
   return (
     <>
       <div className="checkout-grid">
         <div className="form-section">
-          <a href="#" className="back-link">BACK TO ORDER REVIEW</a>
+          {/* Assuming you have a route /order-review */}
+          <Link to="/order-review" className="back-link">BACK TO ORDER REVIEW</Link>
           <h1 className="purchasepara">My Information</h1>
           <hr />
           <form>
-            <input type="email" placeholder="Email address" className="inputs" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <input type="tel" placeholder="Phone Number" className="inputs" value={phone} onChange={(e) => setPhone(e.target.value)} />
-            <input type="text" placeholder="Address" className="inputs" value={address} onChange={(e) => setAddress(e.target.value)} />
+            <input
+              type="email"
+              placeholder="Email address"
+              className="inputs"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              className="inputs"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Address"
+              className="inputs"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            />
             <div className="row check1">
-              <input type="text" placeholder="City" className="inputs-small" value={city} onChange={(e) => setCity(e.target.value)} />
-              <input type="text" placeholder="State" className="inputs-small" value={stateValue} onChange={(e) => setStateValue(e.target.value)} />
-              <input type="text" placeholder="ZIP Code" className="inputs-small" value={zip} onChange={(e) => setZip(e.target.value)} />
+              <input
+                type="text"
+                placeholder="City"
+                className="inputs-small"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="State"
+                className="inputs-small"
+                value={stateValue}
+                onChange={(e) => setStateValue(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="ZIP Code"
+                className="inputs-small"
+                value={zip}
+                onChange={(e) => setZip(e.target.value)}
+              />
             </div>
 
             <h3 className="purchasetext">How would you like to receive your order?</h3>
             <hr />
             <div className="checkbox-group">
               <label>
-                <input type="radio" name="deliveryMethod" checked={deliveryMethod === "shipment"} onChange={() => setDeliveryMethod("shipment")} />
-                Byshipment
+                <input
+                  type="radio"
+                  name="deliveryMethod"
+                  checked={deliveryMethod === "shipment"}
+                  onChange={() => setDeliveryMethod("shipment")}
+                />
+                By shipment
               </label>
               <label>
-                <input type="radio" name="deliveryMethod" checked={deliveryMethod === "pickup"} onChange={() => setDeliveryMethod("pickup")} />
-                Inperson
+                <input
+                  type="radio"
+                  name="deliveryMethod"
+                  checked={deliveryMethod === "pickup"}
+                  onChange={() => setDeliveryMethod("pickup")}
+                />
+                In person
               </label>
             </div>
 
@@ -98,10 +153,15 @@ const Checkout = () => {
             <div className="d-flex justify-content-between"><p>Subtotal</p><p>$100.00</p></div>
             <div className="d-flex justify-content-between"><p>Sales Tax</p><p>$5.00</p></div>
             <hr />
-            <div className="d-flex justify-content-between"><p className="totals-final"><b>Total</b></p><p className="totals-amount"><b>$109.50</b></p></div>
+            <div className="d-flex justify-content-between">
+              <p className="totals-final"><b>Total</b></p>
+              <p className="totals-amount"><b>$109.50</b></p>
+            </div>
           </div>
 
-          <button type="button" className="btn totals-button btn-dark" onClick={handlePurchase}>PURCHASE</button>
+          <button type="button" className="btn totals-button btn-dark" onClick={handlePurchase}>
+            PURCHASE
+          </button>
         </div>
       </div>
 
@@ -110,25 +170,88 @@ const Checkout = () => {
           <div className="section">
             <div className="section-header">
               <h2 className="checktext">Shipping Details</h2>
-              <a href="#" className="autofill-link">Autofill with My Information</a>
+              {/* This is an action, so button is appropriate */}
+              <button type="button" className="autofill-link" onClick={handleAutofill}>
+                Autofill with My Information
+              </button>
             </div>
-            <input type="text" placeholder="Shipping address" className="inputs" value={shipAddress} onChange={(e) => setShipAddress(e.target.value)} />
+            <input
+              type="text"
+              placeholder="Shipping address"
+              className="inputs"
+              value={shipAddress}
+              onChange={(e) => setShipAddress(e.target.value)}
+            />
             <div className="row check1">
-              <input type="text" placeholder="City" className="inputs-small" value={shipCity} onChange={(e) => setShipCity(e.target.value)} />
-              <input type="text" placeholder="State" className="inputs-small" value={shipState} onChange={(e) => setShipState(e.target.value)} />
-              <input type="text" placeholder="ZIP Code" className="inputs-small" value={shipZip} onChange={(e) => setShipZip(e.target.value)} />
+              <input
+                type="text"
+                placeholder="City"
+                className="inputs-small"
+                value={shipCity}
+                onChange={(e) => setShipCity(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="State"
+                className="inputs-small"
+                value={shipState}
+                onChange={(e) => setShipState(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="ZIP Code"
+                className="inputs-small"
+                value={shipZip}
+                onChange={(e) => setShipZip(e.target.value)}
+              />
             </div>
           </div>
           <div className="checksection">
             <h2 className="checktext">Billing Information</h2>
-            <input type="text" placeholder="Name on Card" className="inputs-small1" value={cardName} onChange={(e) => setCardName(e.target.value)} />
-            <input type="text" placeholder="Debit / Credit Card Number" className="inputs-small1 ms-3" value={cardNumber} onChange={(e) => setCardNumber(e.target.value)} />
+            <input
+              type="text"
+              placeholder="Name on Card"
+              className="inputs-small1"
+              value={cardName}
+              onChange={(e) => setCardName(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Debit / Credit Card Number"
+              className="inputs-small1 ms-3"
+              value={cardNumber}
+              onChange={(e) => setCardNumber(e.target.value)}
+            />
             <div className="row check1">
-              <input type="text" placeholder="Expiration Date (MM/YY)" className="inputs-small" value={expDate} onChange={(e) => setExpDate(e.target.value)} />
-              <input type="text" placeholder="CVV" className="inputs-small" value={cvv} onChange={(e) => setCvv(e.target.value)} />
-              <input type="text" placeholder="ZIP Code" className="inputs-small" value={billingZip} onChange={(e) => setBillingZip(e.target.value)} />
+              <input
+                type="text"
+                placeholder="Expiration Date (MM/YY)"
+                className="inputs-small"
+                value={expDate}
+                onChange={(e) => setExpDate(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="CVV"
+                className="inputs-small"
+                value={cvv}
+                onChange={(e) => setCvv(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="ZIP Code"
+                className="inputs-small"
+                value={billingZip}
+                onChange={(e) => setBillingZip(e.target.value)}
+              />
             </div>
-            <input type="text" placeholder="Billing Address" className="inputs" value={billingAddress} onChange={(e) => setBillingAddress(e.target.value)} />
+            <input
+              type="text"
+              placeholder="Billing Address"
+              className="inputs"
+              value={billingAddress}
+              onChange={(e) => setBillingAddress(e.target.value)}
+            />
             <p className="same-address">Same as Shipping Address</p>
           </div>
         </div>
@@ -139,7 +262,8 @@ const Checkout = () => {
           <div className="pickup-section">
             <div className="header">
               <h2>Pickup Location</h2>
-              <a href="#" className="change-location">Choose a different location</a>
+              {/* Assuming /pickup-locations is a valid route */}
+              <Link to="/pickup-locations" className="change-location">Choose a different location</Link>
             </div>
             <div className="pickup-info">
               <p className="mall-name"><strong>MARIGOLD MALL</strong></p>
@@ -150,14 +274,50 @@ const Checkout = () => {
           </div>
           <div className="billing-section">
             <h2>Billing Information</h2>
-            <input type="text" placeholder="Name on Card" className="inputs" value={cardName} onChange={(e) => setCardName(e.target.value)} />
-            <input type="text" placeholder="Debit / Credit Card Number" className="inputs" value={cardNumber} onChange={(e) => setCardNumber(e.target.value)} />
+            <input
+              type="text"
+              placeholder="Name on Card"
+              className="inputs"
+              value={cardName}
+              onChange={(e) => setCardName(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Debit / Credit Card Number"
+              className="inputs"
+              value={cardNumber}
+              onChange={(e) => setCardNumber(e.target.value)}
+            />
             <div className="row check1">
-              <input type="text" placeholder="Expiration Date (MM/YY)" className="inputs-small" value={expDate} onChange={(e) => setExpDate(e.target.value)} />
-              <input type="text" placeholder="CVV" className="inputs-small" value={cvv} onChange={(e) => setCvv(e.target.value)} />
-              <input type="text" placeholder="ZIP Code" className="inputs-small" value={billingZip} onChange={(e) => setBillingZip(e.target.value)} />
+              <input
+                type="text"
+                placeholder="Expiration Date (MM/YY)"
+                className="inputs-small"
+                value={expDate}
+                onChange={(e) => setExpDate(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="CVV"
+                className="inputs-small"
+                value={cvv}
+                onChange={(e) => setCvv(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="ZIP Code"
+                className="inputs-small"
+                value={billingZip}
+                onChange={(e) => setBillingZip(e.target.value)}
+              />
             </div>
-            <input type="text" placeholder="Billing Address" className="inputs" value={billingAddress} onChange={(e) => setBillingAddress(e.target.value)} />
+            <input
+              type="text"
+              placeholder="Billing Address"
+              className="inputs"
+              value={billingAddress}
+              onChange={(e) => setBillingAddress(e.target.value)}
+            />
           </div>
         </div>
       )}

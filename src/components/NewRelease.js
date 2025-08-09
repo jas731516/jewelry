@@ -42,6 +42,7 @@ function NewRelease() {
                                 </Link>
                             );
                         }
+                        return null;
                     })}
                 </div>
 
@@ -70,6 +71,7 @@ function NewRelease() {
                                 </div>
                             </Link>
                         }
+                        return null;
                     })}
                 </div>
 
