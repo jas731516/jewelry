@@ -1,12 +1,23 @@
-import React from "react";
-import '../components/check.css'
+import React, { useContext, useEffect } from "react";
+import '../components/check.css';
 import { Link } from "react-router-dom";
+import { ShoppingBagContext } from "../App"; // import your context
 
 const OrderConfirmation = () => {
+  const { setShoppingBag } = useContext(ShoppingBagContext); // get setter from context
+
+  useEffect(() => {
+    // Clear bag on load
+    setShoppingBag([]);
+    localStorage.removeItem("shoppingBag"); // optional if you store in localStorage
+  }, [setShoppingBag]);
+
   return (
     <div className="order-confirmation">
       <h1>Order placed!</h1>
-      <p style={{ fontSize: '15px', paddingTop: '10px' }}>A copy of your receipt has been sent to <br /> your email.</p>
+      <p style={{ fontSize: '15px', paddingTop: '10px' }}>
+        A copy of your receipt has been sent to <br /> your email.
+      </p>
 
       <div className="order-summarys">
         <div className="order-header">
@@ -31,7 +42,9 @@ const OrderConfirmation = () => {
         </div>
       </div>
 
-      <Link to={'/'} style={{ color: 'black', textDecoration: 'none' }}><button className="back-button">BACK TO SHOPPING</button></Link>
+      <Link to={'/'} style={{ color: 'black', textDecoration: 'none' }}>
+        <button className="back-button">BACK TO SHOPPING</button>
+      </Link>
     </div>
   );
 };
