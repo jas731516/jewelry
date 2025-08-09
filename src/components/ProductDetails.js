@@ -8,15 +8,20 @@ function ProductDetails() {
     const { wishlistItems, setWishlistItems } = useContext(WishlistContext);
     const { categories } = useContext(productContext);
     const { id } = useParams();
-    const findProduct = categories?.find(item => item.id == id) || {};
+
+    // Use strict equality to avoid ESLint warnings
+    const findProduct = categories?.find(item => item.id === id) || {};
+
     const [isAdded, setIsAdded] = useState(false);
     const [isWishlisted, setIsWishlisted] = useState(false);
     const [activeIndex, setActiveIndex] = useState(null);
+
     useEffect(() => {
         if (findProduct?.id) {
             setIsWishlisted(wishlistItems.some(item => item.id === findProduct.id));
         }
     }, [findProduct, wishlistItems]);
+
     const handleAddToBag = () => {
         const isProductInBag = shoppingBag.some(item => item.id === findProduct.id);
 
@@ -26,6 +31,7 @@ function ProductDetails() {
             setTimeout(() => setIsAdded(false), 2000);
         }
     };
+
     const handleWishlistClick = () => {
         if (isWishlisted) {
             setWishlistItems(wishlistItems.filter(item => item.id !== findProduct.id));
@@ -34,6 +40,7 @@ function ProductDetails() {
         }
         setIsWishlisted(!isWishlisted);
     };
+
     const toggleAccordion = (index) => {
         setActiveIndex(activeIndex === index ? null : index);
     };
@@ -129,7 +136,7 @@ function ProductDetails() {
                                         <img src={data.img} className="card-img-top" alt={data.title} />
                                         <div className="card-body">
                                             <h6 className="card-title">{data.title}</h6>
-                                            <p className="card-text">{data.price}</p>
+                                            <p className="card-text">${data.price}</p> {/* Added $ */}
                                         </div>
                                     </div>
                                 </div>

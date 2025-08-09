@@ -26,6 +26,7 @@ const Gift = () => {
                                 </div>
                             </div>
                         }
+                        return null
                     })}
                 </div>
             </div>

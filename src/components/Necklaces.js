@@ -31,6 +31,7 @@ function Necklaces() {
                                 </div>
                             </Link>
                         }
+                        return null;
                     })}
                 </div>
                 <div className="brace-row my-5">
@@ -50,6 +51,7 @@ function Necklaces() {
                                 </Link>
                             );
                         }
+                        return null;
                     })}
                 </div>
 

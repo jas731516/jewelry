@@ -1,6 +1,3 @@
-
-
-
 import React, { useContext, useEffect, useState, useRef } from "react";
 import { Navbar, Nav, Container, Form } from "react-bootstrap";
 import { FaHeart, FaShoppingBag, FaUser, FaSearch, FaBars, FaMapMarkerAlt } from "react-icons/fa";
@@ -24,6 +21,7 @@ const Navbars = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   const { shoppingBag } = useContext(ShoppingBagContext);
   const { wishlistItems } = useContext(WishlistContext);
 
@@ -31,7 +29,7 @@ const Navbars = () => {
   const [showMegaMenu, setShowMegaMenu] = useState(false);
   const [showMegaMenu1, setShowMegaMenu1] = useState(false);
   const [showMegaMenu3, setShowMegaMenu3] = useState(false);
-  const [isSignup, setIsSignup] = useState(false);
+  const [isSignup] = useState(false); // Removed setIsSignup to fix ESLint warning
   const [showModal, setShowModal] = useState(false);
 
   const megaMenuRef = useRef(null);
@@ -45,6 +43,7 @@ const Navbars = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
