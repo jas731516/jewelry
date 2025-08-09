@@ -9,8 +9,9 @@ function ProductDetails() {
   const { categories } = useContext(productContext);
   const { id } = useParams();
 
+  // useMemo to memoize findProduct and fix ESLint warning
   const findProduct = useMemo(() => {
-    return categories?.find(item => item.id == id) || {};
+    return categories?.find(item => item.id === Number(id)) || {};
   }, [categories, id]);
 
   const [isAdded, setIsAdded] = useState(false);
@@ -48,7 +49,10 @@ function ProductDetails() {
 
   return (
     <div>
-      <div className="container-fluid card mb-3 mt-5" style={{ border: "none", padding: "0px 7% 70px 7%" }}>
+      <div
+        className="container-fluid card mb-3 mt-5"
+        style={{ border: "none", padding: "0px 7% 70px 7%" }}
+      >
         <div className="row g-1 mt-5" id="products">
           <div className="col-md-5">
             <img
@@ -60,7 +64,9 @@ function ProductDetails() {
           </div>
           <div className="col-md-7 card-content">
             <div className="card-body">
-              <Link className="back-to" to="/NewRelease">BACK TO SELECTION</Link>
+              <Link className="back-to" to="/NewRelease">
+                BACK TO SELECTION
+              </Link>
               <div className="card-sec">
                 <div>
                   <h5 className="card-title tittle-card">{findProduct.title}</h5>
@@ -68,7 +74,12 @@ function ProductDetails() {
                 </div>
                 <div>
                   <CiHeart
-                    style={{ width: "25px", height: "25px", cursor: "pointer", color: isWishlisted ? "red" : "black" }}
+                    style={{
+                      width: "25px",
+                      height: "25px",
+                      cursor: "pointer",
+                      color: isWishlisted ? "red" : "black",
+                    }}
                     onClick={handleWishlistClick}
                   />
                 </div>
@@ -76,7 +87,9 @@ function ProductDetails() {
               <p className="card-text pt-3">{findProduct.tittle}</p>
               <button
                 type="button"
-                className={`btn card-addto-bag ${isAdded ? "btn-added" : "btn-default"}`}
+                className={`btn card-addto-bag ${
+                  isAdded ? "btn-added" : "btn-default"
+                }`}
                 onClick={handleAddToBag}
               >
                 {isAdded ? "ADDED" : "ADD TO BAG"}
@@ -84,7 +97,10 @@ function ProductDetails() {
               <div className="accordion-container">
                 {findProduct.accordionData?.map((item, index) => (
                   <div className="accordion-item" key={index}>
-                    <button className="accordion-header" onClick={() => toggleAccordion(index)}>
+                    <button
+                      className="accordion-header"
+                      onClick={() => toggleAccordion(index)}
+                    >
                       {item.title}
                       <span className={`icon ${activeIndex === index ? "rotate" : ""}`}>
                         {!item.icon ? (
@@ -114,7 +130,10 @@ function ProductDetails() {
                       <div className="accordion-content">
                         {item.title === "LOCAL AVAILABILITY" ? (
                           <div className="store-availability">
-                            <div className="d-flex justify-content-between align-items-start local-avail" style={{ gap: "60px" }}>
+                            <div
+                              className="d-flex justify-content-between align-items-start local-avail"
+                              style={{ gap: "60px" }}
+                            >
                               <div className="store-search">
                                 <p>Look up nearby stores:</p>
                                 <div className="search-box">
@@ -123,10 +142,14 @@ function ProductDetails() {
                                 </div>
                               </div>
                               <div className="store-details">
-                                <p><strong>MARIGOLD MALL</strong></p>
+                                <p>
+                                  <strong>MARIGOLD MALL</strong>
+                                </p>
                                 <p>13 Greenleaf Ave.</p>
                                 <p>New York, NY 12345</p>
-                                <p className="pickup-info">Pickup Available from 8 AM to 7 PM</p>
+                                <p className="pickup-info">
+                                  Pickup Available from 8 AM to 7 PM
+                                </p>
                               </div>
                             </div>
                           </div>
@@ -150,7 +173,7 @@ function ProductDetails() {
           <p id="recommended">Recommended for you</p>
           <p id="history">Based on your history</p>
           <div className="jewels-row">
-            {categories?.slice(0, 5).map(data => (
+            {categories?.slice(0, 5).map((data) => (
               <Link to={`/AddInfo/${data.id}`} className="looping-link" key={data.id}>
                 <div className="col-md-2 col-sm-6 mb-4">
                   <div className="card jewels-card">
